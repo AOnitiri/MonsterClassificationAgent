@@ -28,8 +28,8 @@ def test():
     new_monster_3 = {'size': 'large', 'color': 'gray', 'covering': 'fur', 'foot-type': 'foot', 'leg-count': 1, 'arm-count': 3, 'eye-count': 2, 'horn-count': 0, 'lays-eggs': True, 'has-wings': True, 'has-gills': False, 'has-tail': False}
     new_monster_4 = {'size': 'small', 'color': 'black', 'covering': 'scales', 'foot-type': 'paw', 'leg-count': 2, 'arm-count': 4, 'eye-count': 2, 'horn-count': 0, 'lays-eggs': True, 'has-wings': True, 'has-gills': False, 'has-tail': False}
 
-    print(test_agent.solve(monster_list, new_monster_1))
-    # print(test_agent.solve(monster_list, known_negative_2))
+    print(test_agent.solve(monster_list, {'size': 'large', 'color': 'black', 'covering': 'fur','eye-count': 2,}))
+    print(test_agent.solve(monster_list, {'size': 'tiny', 'color': 'red', 'covering': 'scales', 'foot-type': 'none', 'leg-count': 0, 'arm-count': 8, 'eye-count': 8, 'horn-count': 2, 'lays-eggs': False, 'has-wings': False, 'has-gills': False, 'has-tail': False}))
     # print(test_agent.solve(monster_list, new_monster_2))
     # print(test_agent.solve(monster_list, new_monster_3))
     # print(test_agent.solve(monster_list, new_monster_4))

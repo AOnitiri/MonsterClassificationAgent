@@ -1,3 +1,6 @@
+import datetime
+
+
 class MonsterClassificationAgent:
     def __init__(self):
         #If you want to do any initial processing, add it here.
@@ -15,11 +18,18 @@ class MonsterClassificationAgent:
         #
         #Your function should return True or False as a guess as to whether or not this new
         #monster is an instance of the same species as that represented by the list.
-        #         
+        #
+        start_time = datetime.datetime.now()
+        print(start_time)
+
+
         tree = self.classification_tree(samples, list(new_monster.keys()))
         print("tree: ", tree)
+        result =  self.classify(new_monster, tree)
+        end_time = datetime.datetime.now() - start_time
 
-        return self.classify(new_monster, tree)
+        print(end_time)
+        return result
     
     def classification_tree(self, samples, attributes):
         labels = [label for _, label in samples]
@@ -79,7 +89,6 @@ class MonsterClassificationAgent:
         positives = sum(1 for _, label in samples if label)
         negatives = num_of_samples - positives
 
-        print(positives, negatives)
         entropy = 0
         for count in [positives, negatives]:
             if count == 0:
@@ -95,7 +104,6 @@ class MonsterClassificationAgent:
             return tree
         
         attr = next(iter(tree))
-        print(attr)
         
         value = instance.get(attr)
         print(attr, value)
